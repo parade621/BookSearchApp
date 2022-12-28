@@ -1,9 +1,6 @@
 package com.parade621.booksearchapp.ui.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.parade621.booksearchapp.data.model.SearchResponse
 import com.parade621.booksearchapp.data.repository.BookSearchRepository
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +8,8 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class BookSearchViewModel(
-    private val bookSearchRepository: BookSearchRepository
+    private val bookSearchRepository: BookSearchRepository,
+    private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
     // Api
@@ -26,6 +24,22 @@ class BookSearchViewModel(
                 _searchResult.postValue(body)
             }
         }
+    }
+
+    // SaveState
+    var query = String()
+        set(value) {
+            field = value
+            savedStateHandle.set(SAVE_STATE_KEY, value)
+        }
+
+    init {
+        query = savedStateHandle.get<String>(SAVE_STATE_KEY) ?: "" // 값이 없으면 공백값 반환
+    }
+
+    // 저장과 로드에 사용할 SAVE_STATE_KEY 정의의
+    companion object {
+        private const val SAVE_STATE_KEY = "query"
     }
 
 }

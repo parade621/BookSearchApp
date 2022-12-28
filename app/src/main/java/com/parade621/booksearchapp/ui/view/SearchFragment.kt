@@ -65,9 +65,14 @@ class SearchFragment : Fragment() {
         }
     }
 
+
+    // 책 검색 주요 함수
     private fun searchBooks() {
         var startTime = System.currentTimeMillis()
         var endTime: Long
+
+        binding.etSearch.text =
+            Editable.Factory.getInstance().newEditable(bookSearchViewModel.query)
 
         // EditText에 텍스트가 입력되면 그 값을 ViewModel에 전달한 후, ViewModel의 SearchBooks가 실행되도록 한다.
         binding.etSearch.addTextChangedListener { text: Editable? ->
@@ -77,6 +82,7 @@ class SearchFragment : Fragment() {
                     val query: String = it.toString().trim()
                     if (query.isNotEmpty()) {
                         bookSearchViewModel.searchBooks(query)
+                        bookSearchViewModel.query = query
                     }
                 }
             }
