@@ -1,17 +1,21 @@
-package com.parade621.booksearchapp
+package com.parade621.booksearchapp.ui.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.parade621.booksearchapp.R
+import com.parade621.booksearchapp.data.repository.BookSearchRepositoryImpl
 import com.parade621.booksearchapp.databinding.ActivityMainBinding
-import com.parade621.booksearchapp.ui.view.FavoriteFragment
-import com.parade621.booksearchapp.ui.view.SearchFragment
-import com.parade621.booksearchapp.ui.view.SettingsFragment
+import com.parade621.booksearchapp.ui.viewmodel.BookSearchViewModel
+import com.parade621.booksearchapp.ui.viewmodel.BookSearchViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
+
+    lateinit var bookSearchViewModel: BookSearchViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,12 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             binding.bottomNavigationView.selectedItemId = R.id.fragment_search
         }
+
+        val bookSearchRepository = BookSearchRepositoryImpl()
+        val factory = BookSearchViewModelFactory(bookSearchRepository)
+
+        bookSearchViewModel = ViewModelProvider(this, factory)[BookSearchViewModel::class.java]
+
     }
 
     /**
