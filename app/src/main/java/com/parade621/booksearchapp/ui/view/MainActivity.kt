@@ -25,12 +25,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-//        setupBottomNavigationView()
-//        // app이 처음 실행된 경우에만 searchFragment가 실행되게 한다.
-//        if (savedInstanceState == null) {
-//            binding.bottomNavigationView.selectedItemId = R.id.fragment_search
-//        }
-
         setupJetpackNavigation()
 
         val bookSearchRepository = BookSearchRepositoryImpl()
@@ -47,34 +41,3 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setupWithNavController(navController)
     }
 }
-
-
-//    /**
-//     * Compose Bottom_Navigation_View
-//     */
-//    private fun setupBottomNavigationView() {
-//        binding.bottomNavigationView.setOnItemSelectedListener { item ->
-//            when (item.itemId) {
-//                R.id.fragment_search -> {
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.frame_layout, SearchFragment())
-//                        .commit()
-//                    true
-//                }
-//                R.id.fragment_favorite -> {
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.frame_layout, FavoriteFragment())
-//                        .commit()
-//                    true
-//                }
-//                R.id.fragment_settings -> {
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.frame_layout, SettingsFragment())
-//                        .commit()
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
-//    }
-//}
