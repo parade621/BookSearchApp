@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.parade621.booksearchapp.R
+import com.parade621.booksearchapp.data.db.BookSearchDatabase
 import com.parade621.booksearchapp.data.repository.BookSearchRepositoryImpl
 import com.parade621.booksearchapp.databinding.ActivityMainBinding
 import com.parade621.booksearchapp.ui.viewmodel.BookSearchViewModel
@@ -27,7 +28,8 @@ class MainActivity : AppCompatActivity() {
 
         setupJetpackNavigation()
 
-        val bookSearchRepository = BookSearchRepositoryImpl()
+        val database = BookSearchDatabase.getInstance(this)
+        val bookSearchRepository = BookSearchRepositoryImpl(database)
         val factory = BookSearchViewModelFactory(bookSearchRepository, this)
 
         bookSearchViewModel = ViewModelProvider(this, factory)[BookSearchViewModel::class.java]

@@ -1,6 +1,7 @@
 package com.parade621.booksearchapp.ui.viewmodel
 
 import androidx.lifecycle.*
+import com.parade621.booksearchapp.data.model.Book
 import com.parade621.booksearchapp.data.model.SearchResponse
 import com.parade621.booksearchapp.data.repository.BookSearchRepository
 import kotlinx.coroutines.Dispatchers
@@ -25,6 +26,17 @@ class BookSearchViewModel(
             }
         }
     }
+
+    // Room
+    fun saveBook(book: Book) = viewModelScope.launch(Dispatchers.IO) {
+        bookSearchRepository.insertBooks(book)
+    }
+
+    fun deleteBook(book: Book) = viewModelScope.launch(Dispatchers.IO) {
+        bookSearchRepository.deleteBooks(book)
+    }
+
+    val favoriteBooks: LiveData<List<Book>> = bookSearchRepository.getFavoriteBooks()
 
     // SaveState
     var query = String()
