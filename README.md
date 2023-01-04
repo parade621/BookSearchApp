@@ -10,7 +10,7 @@ Skills & Library: AAC, Jetpack, OkHttp, Retrofit, 안드로이드
 
 - 책 검색 기능
     
-    <img width="40%" height="30%" src="https://github.com/parade621/BookSearchApp/blob/main/photo/BookSearchApp_Search.gif"/>
+    <img width="30%" height="20%" src="https://github.com/parade621/BookSearchApp/blob/main/photo/BookSearchApp_Search.gif"/>
     
 
 - 정보 제공 기능
