@@ -19,10 +19,21 @@ class BookSearchAdapter :
     override fun onBindViewHolder(holder: BookSearchViewHolder, position: Int) {
         val book: Book = currentList[position]
         holder.bind(book)
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let { it(book) }
+        }
+    }
+
+    // API를 통해 받아온 책을 아이템으로, 각각의 아이템을 클릭 시 동작을 수행하는 리스너 설정
+    private var onItemClickListener: ((Book) -> Unit)? = null
+    fun setOnItemClickListener(listener: (Book) -> Unit) {
+        onItemClickListener = listener
     }
 
     // DiffUtil 작동을 위한 callback 생성
-    companion object {
+    companion
+
+    object {
         private val BookDiffCallback: DiffUtil.ItemCallback<Book> =
             object : DiffUtil.ItemCallback<Book>() {
                 override fun areItemsTheSame(oldItem: Book, newItem: Book): Boolean {
