@@ -15,11 +15,11 @@ Skills & Library: AAC, Jetpack, OkHttp, Retrofit, 안드로이드
 
 - 정보 제공 기능
 
-![2023-01-04 15;13;18.gif](BookSearchApp%2094135036829b4374a9afec9f0502f17b/2023-01-04_151318.gif)
+    <img width="30%" height="20%" src="https://github.com/parade621/BookSearchApp/blob/main/photo/2023-01-04_151318.gif"/>
 
 - 관심 목록 저장 기능
 
-![2023-01-04 20;00;28.gif](BookSearchApp%2094135036829b4374a9afec9f0502f17b/2023-01-04_200028.gif)
+    <img width="30%" height="20%" src="https://github.com/parade621/BookSearchApp/blob/main/photo/2023-01-04_200028.gif"/>
 
 ## 🛠️ 사용 기술 및 라이브러리
 
