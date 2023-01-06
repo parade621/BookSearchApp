@@ -5,6 +5,9 @@ import com.parade621.booksearchapp.data.model.Book
 import com.parade621.booksearchapp.data.model.SearchResponse
 import com.parade621.booksearchapp.data.repository.BookSearchRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -36,7 +39,10 @@ class BookSearchViewModel(
         bookSearchRepository.deleteBooks(book)
     }
 
-    val favoriteBooks: LiveData<List<Book>> = bookSearchRepository.getFavoriteBooks()
+    //val favoriteBooks: Flow<List<Book>> = bookSearchRepository.getFavoriteBooks()
+    // Favorite Fragment의 Lifecycle과 동기화
+    val favoriteBooks: StateFlow<List<Book>> = bookSearchRepository.getFavoriteBooks()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), listOf())
 
     // SaveState
     var query = String()
