@@ -7,8 +7,10 @@ import com.parade621.booksearchapp.data.repository.BookSearchRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Response
 
 class BookSearchViewModel(
@@ -22,7 +24,7 @@ class BookSearchViewModel(
 
     fun searchBooks(query: String) = viewModelScope.launch(Dispatchers.IO) {
         val response: Response<SearchResponse> =
-            bookSearchRepository.searchBooks(query, "accuracy", 1, 15)
+            bookSearchRepository.searchBooks(query, getSortMode(), 1, 15)
         if (response.isSuccessful) {
             response.body()?.let { body ->
                 _searchResult.postValue(body)
@@ -58,6 +60,15 @@ class BookSearchViewModel(
     // 저장과 로드에 사용할 SAVE_STATE_KEY 정의의
     companion object {
         private const val SAVE_STATE_KEY = "query"
+    }
+
+    // DataStore
+    fun saveSortMode(value: String) = viewModelScope.launch(Dispatchers.IO) {
+        bookSearchRepository.saveSortMode(value)
+    }
+
+    suspend fun getSortMode() = withContext(Dispatchers.IO) {
+        bookSearchRepository.getSortMode().first()
     }
 
 }
