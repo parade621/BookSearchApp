@@ -1,8 +1,8 @@
 package com.parade621.booksearchapp.data.repository
 
-import androidx.lifecycle.LiveData
 import com.parade621.booksearchapp.data.model.Book
 import com.parade621.booksearchapp.data.model.SearchResponse
+import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 
 interface BookSearchRepository {
@@ -18,6 +18,11 @@ interface BookSearchRepository {
     suspend fun insertBooks(book: Book)
 
     suspend fun deleteBooks(book: Book)
-    
-    fun getFavoriteBooks(): LiveData<List<Book>>
+
+    fun getFavoriteBooks(): Flow<List<Book>>
+
+    // DataStore
+    suspend fun saveSortMode(mode: String)
+
+    suspend fun getSortMode(): Flow<String>
 }

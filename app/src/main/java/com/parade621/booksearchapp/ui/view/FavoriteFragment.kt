@@ -16,6 +16,7 @@ import com.parade621.booksearchapp.data.model.Book
 import com.parade621.booksearchapp.databinding.FragmentFavoriteBinding
 import com.parade621.booksearchapp.ui.adapter.BookSearchAdapter
 import com.parade621.booksearchapp.ui.viewmodel.BookSearchViewModel
+import com.parade621.booksearchapp.utils.collectLatestStateFlow
 
 class FavoriteFragment : Fragment() {
 
@@ -41,7 +42,23 @@ class FavoriteFragment : Fragment() {
         setupRecyclerView()
         setupTouchHelper(view)
 
-        bookSearchViewModel.favoriteBooks.observe(viewLifecycleOwner) {
+//        bookSearchViewModel.favoriteBooks.observe(viewLifecycleOwner) {
+//            bookSearchAdapter.submitList(it)
+//        }
+        // Flow는 코루틴 안에서 collectLatest를 통해서 구독한다.
+//        lifecycleScope.launch {
+//            bookSearchViewModel.favoriteBooks.collectLatest {
+//                bookSearchAdapter.submitList(it)
+//            }
+//        }
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                bookSearchViewModel.favoriteBooks.collectLatest {
+//                    bookSearchAdapter.submitList(it)
+//                }
+//            }
+//        }
+        collectLatestStateFlow(bookSearchViewModel.favoriteBooks) {
             bookSearchAdapter.submitList(it)
         }
     }
