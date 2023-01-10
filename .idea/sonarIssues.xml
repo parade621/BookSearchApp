@@ -13,6 +13,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/parade621/booksearchapp/data/db/BookSearchDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/parade621/booksearchapp/data/model/Book.java">
           <value>
             <set />
@@ -83,6 +88,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/data/repository/BookSearchPagingSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/data/repository/BookSearchRepository.kt">
           <value>
             <set />
@@ -94,6 +104,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/ui/adapter/BookSearchAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/ui/adapter/BookSearchLoadStateAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/ui/adapter/BookSearchLoadStateViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/ui/adapter/BookSearchPagingAdapter.kt">
           <value>
             <set />
           </value>
@@ -179,6 +204,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/item_book_preview.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/item_load_state.xml">
           <value>
             <set />
           </value>
