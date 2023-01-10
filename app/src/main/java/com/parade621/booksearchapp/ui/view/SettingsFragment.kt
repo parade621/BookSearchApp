@@ -1,6 +1,7 @@
 package com.parade621.booksearchapp.ui.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,7 @@ class SettingsFragment : Fragment() {
 
         saveSettings()
         loadSettings()
+        showWorkStatus()
     }
 
     private fun saveSettings() {
@@ -45,6 +47,15 @@ class SettingsFragment : Fragment() {
             }
             bookSearchViewModel.saveSortMode(value)
         }
+
+        binding.swCacheDelete.setOnCheckedChangeListener { _, isChecked ->
+            bookSearchViewModel.saveCacheDeleteMode(isChecked)
+            if (isChecked) {
+                bookSearchViewModel.setWork()
+            } else {
+                bookSearchViewModel.deleteWork()
+            }
+        }
     }
 
     private fun loadSettings() {
@@ -55,6 +66,23 @@ class SettingsFragment : Fragment() {
                 else -> return@launch
             }
             binding.rgSort.check(buttonId)
+        }
+
+        // WokrManager
+        lifecycleScope.launch {
+            val mode = bookSearchViewModel.getCacheDeleteMode()
+            binding.swCacheDelete.isChecked = mode
+        }
+    }
+
+    private fun showWorkStatus() {
+        bookSearchViewModel.getWorkStatus().observe(viewLifecycleOwner) { workInfo ->
+            Log.d("WorkManager", workInfo.toString())
+            if (workInfo.isEmpty()) {
+                binding.tvWorkStatus.text = "No Work"
+            } else {
+                binding.tvWorkStatus.text = workInfo[0].state.toString()
+            }
         }
     }
 

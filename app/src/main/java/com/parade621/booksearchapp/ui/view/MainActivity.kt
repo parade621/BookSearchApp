@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.WorkManager
 import com.parade621.booksearchapp.R
 import com.parade621.booksearchapp.data.db.BookSearchDatabase
 import com.parade621.booksearchapp.data.repository.BookSearchRepositoryImpl
@@ -29,8 +30,11 @@ class MainActivity : AppCompatActivity() {
 
     // DataStore의 싱글톤 객체체
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(DATASTORE_NAME)
+    private val workManager = WorkManager.getInstance(application)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override
+
+    fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
@@ -38,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         val database = BookSearchDatabase.getInstance(this)
         val bookSearchRepository = BookSearchRepositoryImpl(database, dataStore)
-        val factory = BookSearchViewModelFactory(bookSearchRepository, this)
+        val factory = BookSearchViewModelFactory(bookSearchRepository, workManager, this)
 
         bookSearchViewModel = ViewModelProvider(this, factory)[BookSearchViewModel::class.java]
 
