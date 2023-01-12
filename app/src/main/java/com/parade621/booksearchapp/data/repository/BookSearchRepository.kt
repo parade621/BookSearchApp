@@ -29,7 +29,7 @@ interface BookSearchRepository {
 
     suspend fun saveCacheDeleteMode(mode: Boolean)
 
-    suspend fun
+    suspend fun getCacheDeleteMode(): Flow<Boolean>
 
     // Paging
     fun getFavoritePagingBooks(): Flow<PagingData<Book>>

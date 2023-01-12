@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
@@ -17,17 +18,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.parade621.booksearchapp.databinding.FragmentSearchBinding
 import com.parade621.booksearchapp.ui.adapter.BookSearchLoadStateAdapter
 import com.parade621.booksearchapp.ui.adapter.BookSearchPagingAdapter
-import com.parade621.booksearchapp.ui.viewmodel.BookSearchViewModel
+import com.parade621.booksearchapp.ui.viewmodel.SearchViewModel
 import com.parade621.booksearchapp.utils.Constants.SEARCH_BOOKS_TIME_DELAY
 import com.parade621.booksearchapp.utils.collectLatestStateFlow
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
     // MainActivity에서 초기화한 ViewModel을 가져온다.
-    private lateinit var bookSearchViewModel: BookSearchViewModel
+    //private lateinit var bookSearchViewModel: BookSearchViewModel
+    //private val bookSearchViewModel by activityViewModels<BookSearchViewModel>()
+    private val searchViewModel by viewModels<SearchViewModel>()
 
     //private lateinit var bookSearchAdapter: BookSearchAdapter
     private lateinit var bookSearchAdapter: BookSearchPagingAdapter
@@ -44,7 +49,7 @@ class SearchFragment : Fragment() {
     // ViewModel을 가져옴.
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bookSearchViewModel = (activity as MainActivity).bookSearchViewModel
+        //bookSearchViewModel = (activity as MainActivity).bookSearchViewModel
 
         setupRecyclerView()
         searchBooks()
@@ -55,7 +60,7 @@ class SearchFragment : Fragment() {
 //            bookSearchAdapter.submitList(books)
 //
 //        }
-        collectLatestStateFlow(bookSearchViewModel.searchPagingResult) {
+        collectLatestStateFlow(searchViewModel.searchPagingResult) {
             bookSearchAdapter.submitData(it)
         }
     }
@@ -93,7 +98,7 @@ class SearchFragment : Fragment() {
         var endTime: Long
 
         binding.etSearch.text =
-            Editable.Factory.getInstance().newEditable(bookSearchViewModel.query)
+            Editable.Factory.getInstance().newEditable(searchViewModel.query)
 
         // EditText에 텍스트가 입력되면 그 값을 ViewModel에 전달한 후, ViewModel의 SearchBooks가 실행되도록 한다.
         binding.etSearch.addTextChangedListener { text: Editable? ->
@@ -103,8 +108,8 @@ class SearchFragment : Fragment() {
                     val query: String = it.toString().trim()
                     if (query.isNotEmpty()) {
                         //bookSearchViewModel.searchBooks(query)
-                        bookSearchViewModel.searchBooksPaing(query)
-                        bookSearchViewModel.query = query
+                        searchViewModel.searchBooksPaing(query)
+                        searchViewModel.query = query
                     }
                 }
             }
