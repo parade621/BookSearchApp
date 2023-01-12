@@ -2,7 +2,7 @@ package com.parade621.booksearchapp.data.repository
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.parade621.booksearchapp.data.api.RetrofitInstance.api
+import com.parade621.booksearchapp.data.api.BookSearchApi
 import com.parade621.booksearchapp.data.model.Book
 import com.parade621.booksearchapp.data.model.SearchResponse
 import com.parade621.booksearchapp.utils.Constants.PAGING_SIZE
@@ -11,10 +11,11 @@ import retrofit2.Response
 import java.io.IOException
 
 class BookSearchPagingSource(
+    private val api: BookSearchApi,
     private val query: String,
     private val sort: String
 ) : PagingSource<Int, Book>() {
-   
+
     override fun getRefreshKey(state: PagingState<Int, Book>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)

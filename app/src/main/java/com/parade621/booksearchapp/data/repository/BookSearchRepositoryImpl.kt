@@ -6,7 +6,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.PagingSource
-import com.parade621.booksearchapp.data.api.RetrofitInstance.api
+import com.parade621.booksearchapp.data.api.BookSearchApi
 import com.parade621.booksearchapp.data.db.BookSearchDatabase
 import com.parade621.booksearchapp.data.model.Book
 import com.parade621.booksearchapp.data.model.SearchResponse
@@ -19,10 +19,14 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import retrofit2.Response
 import java.io.IOException
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class BookSearchRepositoryImpl(
+@Singleton
+class BookSearchRepositoryImpl @Inject constructor(
     private val db: BookSearchDatabase,
-    private val dataStore: DataStore<Preferences>
+    private val dataStore: DataStore<Preferences>,
+    private val api: BookSearchApi
 ) : BookSearchRepository {
     override suspend fun searchBooks(
         query: String,
@@ -112,7 +116,7 @@ class BookSearchRepositoryImpl(
 
     override fun searchBooksPaging(query: String, sort: String): Flow<PagingData<Book>> {
         val pagingSourceFactory: () -> BookSearchPagingSource = {
-            BookSearchPagingSource(query, sort)
+            BookSearchPagingSource(api, query, sort)
         }
         return Pager(
             config = PagingConfig(

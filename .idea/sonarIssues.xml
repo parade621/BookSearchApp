@@ -33,6 +33,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/BookSearchApplication.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/MainActivity.kt">
           <value>
             <set />
@@ -108,6 +113,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/di/AppModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/di/RepositoryModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/ui/adapter/BookSearchAdapter.kt">
           <value>
             <set />
@@ -164,6 +179,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/ui/viewmodel/BookSearchViewModelFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/ui/viewmodel/BookViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/ui/viewmodel/FavoriteViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/ui/viewmodel/SearchViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/parade621/booksearchapp/ui/viewmodel/SettingViewModel.kt">
           <value>
             <set />
           </value>
