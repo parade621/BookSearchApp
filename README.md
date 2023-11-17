@@ -15,7 +15,7 @@ Jetpack Compose는 별도의 BookSearchAppWithCompose를 작업 중에 있습니
 
 <br/><br/>
   
-# 🔎 주요 기능
+# 주요 기능
 
 <div style="display: flex; justify-content: space-around; align-items: flex-start;">
   <figure>
@@ -35,26 +35,24 @@ Jetpack Compose는 별도의 BookSearchAppWithCompose를 작업 중에 있습니
 <br/><br/>
 
 
-## 🛠️ 사용 기술 및 라이브러리
-
----
-<br/>
+## 사용 기술 및 라이브러리
 
 - MVVM Pattern
+
 - Android Jectpack
     - ViewModel
     - ViewBinding
     - LiveData
     - Navigation
+    - Room
     - ConstraintLayout
-- Retrofit2 + okHttp3
-- Kotlin Coroutine
+      
+- Network: Retrofit2, okHttp3
+
+- Image: Glide
+
+- DI: Hilt
+  
 - Kakao open API
-
-## 💡 성장한 부분
-
----
-
-- MVVM 패턴을 정확히 적용하는 방법을 학습할 수 있었습니다.
-- 다양한 jetpack library를 학습하고 직접 적용해며 그 동작과 원리를 학습하였습니다.
-- Retrofit을 사용해 서버로 Data를 요청하여 원하는 작업을 수행하는 방법을 학습 할 수 있었습니다.
+  
+<br/><br/>
