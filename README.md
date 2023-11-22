@@ -11,7 +11,7 @@ Modern Android Architecture를 스터디하며 만들어본 Sample Code
 추가적으로 제가 실무에서 사용할 가능성이 높아보이는 라이브러리와 기능 등을 추가하여 이후에 쉽게 가져다 쓸 수 있는 레퍼런스로 사용하기 위해 샘플 프로젝트로 확장 중 입니다.
 
 
-Jetpack Compose과 MVI아키텍쳐는 별도의 MovieSearchWithCompose를 작업 중에 있습니다.
+Jetpack Compose과 MVI아키텍쳐는 별도의 MovieSearchWithCompose를 작업 중에 있습니다.
 
 <br/><br/>
   
