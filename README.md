@@ -3,15 +3,15 @@
 ### 카카오 책 검색 API를 사용해 책을 검색하는 어플리케이션
 <br/>
 
-Modern Android Architecture를 스터디하며 만들어본 Sample Code
+Modern Android Architecture를 스터디하며 만들어본 Sample Code 입니다.
 
-이후로도 안드로이드 스터디를 진행하며 지속적으로 리팩토링이 이루어질 예정입니다.
+지속적인 스터디를 통해 기술 트렌드에 부합하게 리팩토링이 이루어질 예정입니다.
 <br/>
 <br/>
 추가적으로 제가 실무에서 사용을 고려 중인 라이브러리와 기능 등을 추가하여 레퍼런스로 사용하기 위한 샘플 프로젝트로 확장 중 입니다.
 
 
-Jetpack Compose과 MVI아키텍쳐는 별도의 Unsplash_clone_with_compose 작업 중에 있습니다.
+Jetpack Compose과 MVI아키텍쳐는 별도의 Unsplash_clone_with_compose에 작업 중입니다.
 
 <br/>
 
