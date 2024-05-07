@@ -7,16 +7,14 @@ import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
 @HiltAndroidApp
-class BookSearchApplication : Application(), Configuration.Provider {
+class BookSearchApplication(override val workManagerConfiguration: Configuration) : Application(), Configuration.Provider {
 
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
 
-    override fun getWorkManagerConfiguration(): Configuration {
+    fun getWorkManagerConfiguration(): Configuration {
         return Configuration.Builder()
             .setWorkerFactory(workerFactory)
             .build()
     }
-
-
 }
