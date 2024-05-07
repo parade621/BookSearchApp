@@ -41,3 +41,7 @@ P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+F
+app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
+p
+@app/src/main/java/com/parade621/booksearchapp/utils/Constants.kt,a/8/a873732f8fdaeea855cfe2541ccd153191742567

@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 // 책 검색을 위한 서비스
 interface BookSearchApi {
-    @Headers("Authorization: KakaoAK $API_KEY")
+    @Headers("Authorization: KakaoAK ea445866a58ae658fbd8cf12d19d5c65")
     @GET("v3/search/book")
     suspend fun searchBooks(
         @Query("query") query: String,
