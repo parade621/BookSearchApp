@@ -3,7 +3,9 @@
 
 ## 개요
 
-Jetpack AAC, Modern Android Development를 개인 스터디하며 만든 Jetpack All in One sample project
+Jetpack AAC, Modern Android Development를 개인 스터디하며 만든
+<br>
+Jetpack All in One sample project
 
 <img src="photo/Screenshot_1715124807.png" width="40%" height="40%">
 
@@ -113,11 +115,13 @@ di 디렉토리는 의존성 주입을 위한 Dagger Hilt 모듈을 포함
 ### 3. ui
 
 Presentation Layer로 사용자 인터페이스와 상호작용하는 코드를 포함
+<br>
 자세한 구조 설명은 생략
 
 ### 4. utils
 
 앱 전역에서 사용하는 유틸리티 클래스를 포함
+<br>
 자세한 구조 설명은 생략
 
 ### 5. worker
@@ -130,3 +134,24 @@ Presentation Layer로 사용자 인터페이스와 상호작용하는 코드를 
 ```
 - CacheDeleteWorker.kt: 캐시 삭제 작업을 수행하는 Worker 정의
 
+## 기능 목록
+
+### 1. 책 검색
+- 책 검색 API를 사용해 책을 검색
+- 검색 결과를 리스트로 표시
+- paging3을 사용해 무한 스크롤 구현
+
+‣ 사진 추가 예정
+
+### 2. 책 상세 정보
+- 책을 클릭하면 상세 정보를 표시
+- WebView를 사용해 상세 정보를 웹 페이지로 표시
+
+‣ 사진 추가 예정
+
+
+### 3. 북마크
+- 책을 북마크하면 로컬 데이터베이스(Room)에 저장
+- 북마크한 책은 북마크 탭에서 확인 가능
+
+‣ 사진 추가 예정
