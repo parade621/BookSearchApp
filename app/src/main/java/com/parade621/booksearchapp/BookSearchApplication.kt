@@ -8,7 +8,6 @@ import javax.inject.Inject
 
 @HiltAndroidApp
 class BookSearchApplication : Application(), Configuration.Provider {
-
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
 
@@ -16,6 +15,5 @@ class BookSearchApplication : Application(), Configuration.Provider {
         get() = Configuration.Builder()
             .setWorkerFactory(workerFactory)
             .build()
-
 
 }
